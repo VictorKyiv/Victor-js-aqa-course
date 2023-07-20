@@ -11,7 +11,7 @@ describe('Home Page tests', () => {
     });
     
     it('Validate the page background color', () => {
-        cy.get('body').should('have.css', 'background-color', 'rgb(29, 29, 29)');
+        homePage.backgroundColorValidator();
     })
 
     it('Validate that the correspondent image is shown after clicking on the carousel indicators', () => {
@@ -24,16 +24,15 @@ describe('Home Page tests', () => {
     }) 
 
     it('Validate the presence of "Who Are We?" text', () => {
-        homePage.getWhoAreWeTitle().should('have.text', 'Who Are We?');
+        homePage.whoAreWeTitleValidator();
     })
 
     it('Check if the modal window is opening after clicking "Find out More!" button', () => {
-        homePage.getModalButton().click()
-        cy.get('.modal-dialog.modal-md').should('be.visible');
+        homePage.checkModalPopupOpening();
     })
 
     it('Check if there are 5 stars below the "GREAT SERVICE!" title', () => {
-        homePage.getStarsBelowGreatServiceTitle().should('have.length', 5);
+        homePage.checkStarsQuantityBelowGreatServiceTitle();
     })
 
 })
